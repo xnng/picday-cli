@@ -1,0 +1,20 @@
+{
+  "name": "picday",
+  "version": "0.0.1",
+  "description": "A Tool for Setting Desktop Wallpaper",
+  "repository": "https://github.com/xnng/picDay.git",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "picday": "app.js"
+  },
+  "dependencies": {
+    "commander": "^2.19.0",
+    "node-cmd": "^3.0.0"
+  }
+}
