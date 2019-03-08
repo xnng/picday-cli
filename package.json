@@ -14,7 +14,11 @@
     "picday": "app.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "commander": "^2.19.0",
-    "node-cmd": "^3.0.0"
+    "dateformat": "^3.0.3",
+    "node-cmd": "^3.0.0",
+    "request": "^2.88.0",
+    "wallpaper": "^4.2.0"
   }
 }
