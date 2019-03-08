@@ -34,14 +34,6 @@
 
 - 待调研
 
-## 详细实现步骤
+## 素材
 
-### 命令行版
-
-- [x] 使用 npm link 将项目设置成全局命令
-
-- [ ] 使用 request 库发送请求，通过 API 获取到图片数据
-
-- [ ] 使用 fs 模块通过图片 url 将文件保存到用户根目录
-
-- [ ] 读取本地文件，调用 shell 命令将其设置为壁纸
+必应今日壁纸：https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN
