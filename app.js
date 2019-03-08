@@ -6,13 +6,37 @@ const fs = require("fs");
 const commander = require("commander");
 const cmd = require("node-cmd");
 
-const backupWallPaper = async () => {
-  const nowPaper = await wallpaper.get();
-  fs.copyFileSync(nowPaper, `${__dirname}\\out\\old\\reset.jpg`);
-};
+const dateFormat = require("dateformat");
+const today = dateFormat(new Date(), "yyyymmdd");
+
+getBingTodayImage();
+
+// backup wallpaper
+const originImage = fs.existsSync(
+  `${process.env.HOME}\\.picday\\backup\\origin.jpg`
+);
+if (originImage !== true) {
+  const backupWallPaper = async () => {
+    const nowPaper = await wallpaper.get();
+    fs.copyFileSync(
+      nowPaper,
+      `${process.env.HOME}\\.picday\\backup\\origin.jpg`
+    );
+  };
+  backupWallPaper();
+}
+
+// mkdir dir
+const homeDir = fs.readdirSync(`${process.env.HOME}`);
+const isExist = homeDir.indexOf(".picday");
+if (isExist === -1) {
+  fs.mkdirSync(`${process.env.HOME}\\.picday`);
+  fs.mkdirSync(`${process.env.HOME}\\.picday\\bing`);
+  fs.mkdirSync(`${process.env.HOME}\\.picday\\backup`);
+}
 
 const setBingWallpaper = async () => {
-  await wallpaper.set(`C:\\Users\\xnng\\code\\picday\\out\\bing\\20190308.jpg`);
+  await wallpaper.set("C:\\Users\\xnng\\.picday\\bing\\20190308.jpg");
 };
 
 commander
@@ -20,44 +44,22 @@ commander
   .description("change wallpaper to bing")
   .action(option => {
     if (option === "bing") {
-      backupWallPaper();
-      setBingWallpaper();
+      // setBingWallpaper();
+      (async () => {
+        await wallpaper.set("C:\\Users\\xnng\\.picday\\bing\\20190310.jpg");
+      })();
     } else {
       console.log("none");
     }
+  });
 
-    // cmd.get(
-    //   `
-    //   echo ${name}
-    //   `,
-    //   (err, data) => {
-    //     console.log(data);
-    //     if (!err) {
-    //       console.log("init success");
-    //       return;
-    //     }
-
-    //     console.error("init error");
-    //   }
-    // );
+commander
+  .command("reset")
+  .description("reset wallpaper")
+  .action(() => {
+    (async () => {
+      await wallpaper.set("C:\\Users\\xnng\\.picday\\backup\\origin.jpg");
+    })();
   });
 
 commander.parse(process.argv);
-
-// commander
-//   .version("0.0.1")
-//   .option("-a, --aaa", "aaaaa")
-//   .option("-b, --bbb", "bbbbb")
-//   .option("-c, --ccc [name]", "ccccc");
-
-// if (commander.aaa) {
-//   console.log("aaa");
-// }
-
-// if (commander.bbb) {
-//   console.log("bbb");
-// }
-
-// if (commander.ccc) {
-//   console.log("ccc", commander.ccc);
-// }
