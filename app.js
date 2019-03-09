@@ -6,7 +6,15 @@ const setBing = require("./src/saveBingImage");
 const fs = require("fs");
 const initProgram = require("./src/init");
 
-const { bingUrl, momentumUrl, originUrl } = require("./config/constants");
+const {
+  bingUrl,
+  momentumUrl,
+  originUrl,
+  dataStoreFile
+} = require("./config/constants");
+
+const Store = require("data-store");
+const store = new Store({ path: dataStoreFile });
 
 initProgram();
 program.version("0.2.0");
@@ -49,6 +57,13 @@ program
   .action(() => {
     fs.unlinkSync(bingUrl);
     fs.unlinkSync(momentumUrl);
+  });
+
+program
+  .command("set <id>")
+  .description("set momentum uuid")
+  .action(id => {
+    store.set("uuid", id);
   });
 
 program.command("*").action(() => {
