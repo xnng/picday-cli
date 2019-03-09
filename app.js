@@ -70,7 +70,7 @@ program
 
 program
   .command("open")
-  .description("set momentum uuid")
+  .description("open picture folder in explorer")
   .action(() => {
     openExplorer(homeDir);
   });
