@@ -5,7 +5,7 @@ const fss = require("fs-extra");
 const {dataStorePath,dataStoreFile} = require("../config/constants");
 
 const initHomeDir = () => {
-  const userDir = fs.readdirSync(process.env.HOME);
+  const userDir = fs.readdirSync(process.env.HOME || process.env.USERPROFILE);
   const isExist = userDir.indexOf(".picday");
   if (isExist === -1) {
     fs.mkdirSync(homeDir);
