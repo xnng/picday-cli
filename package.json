@@ -1,6 +1,6 @@
 {
   "name": "picday-cli",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Get and set today's wallpaper from Bing and momentum",
   "repository": "https://github.com/xnng/picday-cli.git",
   "main": "app.js",
@@ -14,9 +14,13 @@
     "picday": "app.js"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "commander": "^2.19.0",
+    "data-store": "^3.1.0",
     "dateformat": "^3.0.3",
+    "fs-extra": "^7.0.1",
     "got": "^9.6.0",
+    "open-file-explorer": "^1.0.2",
     "progress-stream": "^2.0.0",
     "request": "^2.88.0",
     "wallpaper": "^4.2.0"

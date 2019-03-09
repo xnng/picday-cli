@@ -5,8 +5,18 @@ const setMomentun = require("./src/saveMomenImage");
 const setBing = require("./src/saveBingImage");
 const fs = require("fs");
 const initProgram = require("./src/init");
+const openExplorer = require("open-file-explorer");
 
-const { bingUrl, momentumUrl, originUrl } = require("./config/constants");
+const {
+  bingUrl,
+  momentumUrl,
+  originUrl,
+  dataStoreFile,
+  homeDir
+} = require("./config/constants");
+
+const Store = require("data-store");
+const store = new Store({ path: dataStoreFile });
 
 initProgram();
 program.version("0.2.0");
@@ -49,6 +59,20 @@ program
   .action(() => {
     fs.unlinkSync(bingUrl);
     fs.unlinkSync(momentumUrl);
+  });
+
+program
+  .command("set <id>")
+  .description("set momentum uuid")
+  .action(id => {
+    store.set("uuid", id);
+  });
+
+program
+  .command("open")
+  .description("open picture folder in explorer")
+  .action(() => {
+    openExplorer(homeDir);
   });
 
 program.command("*").action(() => {

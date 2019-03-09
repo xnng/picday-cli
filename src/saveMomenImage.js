@@ -1,9 +1,10 @@
 const got = require("got");
-const { today, mommentumDay } = require("../utils/formatDate");
-const { homeDir, momentumUrl } = require("../config/constants");
+const { mommentumDay } = require("../utils/formatDate");
+const { momentumUrl, momentumId } = require("../config/constants");
 const fs = require("fs");
 const wallpaper = require("wallpaper");
 const progress = require("progress-stream");
+const chalk = require("chalk");
 
 var str = progress({
   length: 3145728,
@@ -11,14 +12,14 @@ var str = progress({
 });
 
 str.on("progress", function(progress) {
-  console.log("downloading......");
+  console.log(chalk.green("downloading......"));
   console.log(Math.round(progress.percentage) + "%");
 });
 
 const client = got.extend({
   baseUrl: "https://api.momentumdash.com",
   headers: {
-    "X-Momentum-ClientId": "d2608540-c607-4422-a6c7-1e35233ad37d",
+    "X-Momentum-ClientId": momentumId,
     Host: "api.momentumdash.com"
   }
 });
