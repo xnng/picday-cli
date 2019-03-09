@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 const wallpaper = require("wallpaper");
 const fs = require("fs");
-const {today} = require("./utils/formatDate");
+const { today } = require("./utils/formatDate");
 const got = require("got");
 const program = require("commander");
 const { homeDir } = require("./config/constants");
 const { bingAPI } = require("./config/api");
+const setMoment = require("./src/saveMomenImage");
 
 program.version("0.2.0");
 
@@ -20,8 +21,8 @@ program
         .on("finish", async () => {
           await wallpaper.set(`${homeDir}\\bing-${today}.jpg`);
         });
-    } else {
-      console.log("none");
+    } else if (name === "momentum") {
+      setMoment();
     }
   });
 

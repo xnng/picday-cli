@@ -1,15 +1,15 @@
 {
-  "name": "picday",
-  "version": "0.0.1",
-  "description": "A Tool for Setting Desktop Wallpaper",
-  "repository": "https://github.com/xnng/picDay.git",
+  "name": "picday-cli",
+  "version": "0.2.0",
+  "description": "get today's wallpaper from Bing and momentum",
+  "repository": "https://github.com/xnng/picday-cli.git",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "picday": "app.js"
   },
@@ -19,6 +19,7 @@
     "dateformat": "^3.0.3",
     "got": "^9.6.0",
     "node-cmd": "^3.0.0",
+    "progress-stream": "^2.0.0",
     "request": "^2.88.0",
     "wallpaper": "^4.2.0"
   }
