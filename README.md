@@ -10,27 +10,33 @@ $ npm install -g picday-cli
 
 - change wallpaper to Bing
 
-  ```bash
-  $ picday use bing
-  ```
+```bash
+$ picday use bing
+```
 
 - change wallpaper to momentum
 
-  ```bash
-  $ picday use momentum
-  ```
+```bash
+$ picday use momentum
+```
 
 - reset origin wallpaper
 
-  ```bash
-  $ picday reset
-  ```
+```bash
+$ picday reset
+```
 
 - delete today's wallpaper
 
-  ```bash
-  $ picday clean
-  ```
+```bash
+$ picday clean
+```
+
+- open wallpaper folder in explorer
+
+```bash
+$ picday open
+```
 
 ## License
 
