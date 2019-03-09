@@ -43,6 +43,14 @@ program
     })();
   });
 
+program
+  .command("clean")
+  .description("delete today's wallpaper")
+  .action(() => {
+    fs.unlinkSync(bingUrl);
+    fs.unlinkSync(momentumUrl);
+  });
+
 program.command("*").action(() => {
   console.log("No Such Command !");
 });
