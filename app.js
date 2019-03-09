@@ -7,6 +7,7 @@ const program = require("commander");
 const { homeDir } = require("./config/constants");
 const { bingAPI } = require("./config/api");
 const setMoment = require("./src/saveMomenImage");
+const setBing = require("./src/saveBingImage");
 
 program.version("0.2.0");
 
@@ -15,12 +16,7 @@ program
   .description("change wallpaper to bing or momentum")
   .action(name => {
     if (name === "bing") {
-      got
-        .stream(bingAPI)
-        .pipe(fs.createWriteStream(`${homeDir}\\bing-${today}.jpg`))
-        .on("finish", async () => {
-          await wallpaper.set(`${homeDir}\\bing-${today}.jpg`);
-        });
+      setBing();
     } else if (name === "momentum") {
       setMoment();
     }
