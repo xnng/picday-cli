@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { homeDir } = require("../config/constants");
+const { homeDir, originUrl } = require("../config/constants");
 const wallpaper = require("wallpaper");
 
 const initHomeDir = () => {
@@ -11,12 +11,12 @@ const initHomeDir = () => {
 };
 
 const backupWallPaper = () => {
-  const originImage = fs.existsSync(`${homeDir}\\origin.jpg`);
+  const originImage = fs.existsSync(originUrl);
 
   if (originImage !== true) {
     (async () => {
       const nowPaper = await wallpaper.get();
-      fs.copyFileSync(nowPaper, `${homeDir}\\origin.jpg`);
+      fs.copyFileSync(nowPaper, originUrl);
     })();
   }
 };

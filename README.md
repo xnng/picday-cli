@@ -1,15 +1,37 @@
-## Install
+# Get and set today's wallpaper from Bing and momentum
+
+## Installation
 
 ```bash
-$ npm install -g picday
+$ npm install -g picday-cli
 ```
 
-## how to use
+## How to use
 
-```bash
-$ picday use bing
-```
+- change wallpaper to Bing
 
-```bash
-$ picday reset
-```
+  ```bash
+  $ picday use bing
+  ```
+
+- change wallpaper to momentum
+
+  ```bash
+  $ picday use momentum
+  ```
+
+- reset origin wallpaper
+
+  ```bash
+  $ picday reset
+  ```
+
+- delete today's wallpaper
+
+  ```bash
+  $ picday clean
+  ```
+
+## License
+
+MIT
