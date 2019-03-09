@@ -1,6 +1,6 @@
 # Picday-cli
 
-Get and set today's wallpaper from bing.com and Momentum chrome extension.
+>Get and set today's wallpaper from bing.com and Momentum chrome extension.
 
 
 <p align="center">
