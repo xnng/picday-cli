@@ -1,6 +1,6 @@
 const got = require("got");
 const { today, mommentumDay } = require("../utils/formatDate");
-const { homeDir } = require("../config/constants");
+const { homeDir, momentumUrl } = require("../config/constants");
 const fs = require("fs");
 const wallpaper = require("wallpaper");
 const progress = require("progress-stream");
@@ -11,7 +11,7 @@ var str = progress({
 });
 
 str.on("progress", function(progress) {
-  console.log("downloading......")
+  console.log("downloading......");
   console.log(Math.round(progress.percentage) + "%");
 });
 
@@ -23,7 +23,7 @@ const client = got.extend({
   }
 });
 
-const setMoment = async () => {
+const setMomentun = async () => {
   const response = await client.get(
     `/feed/bulk?syncTypes=backgrounds&localDate=${mommentumDay}`
   );
@@ -31,10 +31,10 @@ const setMoment = async () => {
   got
     .stream(imgUrl)
     .pipe(str)
-    .pipe(fs.createWriteStream(`${homeDir}\\momentum-${today}.jpg`))
+    .pipe(fs.createWriteStream(momentumUrl))
     .on("finish", async () => {
-      await wallpaper.set(`${homeDir}\\momentum-${today}.jpg`);
+      await wallpaper.set(momentumUrl);
     });
 };
 
-module.exports = setMoment;
+module.exports = setMomentun;

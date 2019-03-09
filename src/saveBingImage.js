@@ -1,6 +1,6 @@
 const got = require("got");
-const { today, mommentumDay } = require("../utils/formatDate");
-const { homeDir } = require("../config/constants");
+const { today } = require("../utils/formatDate");
+const { homeDir, bingUrl } = require("../config/constants");
 const fs = require("fs");
 const { bingAPI } = require("../config/api");
 const wallpaper = require("wallpaper");
@@ -20,9 +20,9 @@ const setBing = () => {
   got
     .stream(bingAPI)
     .pipe(str)
-    .pipe(fs.createWriteStream(`${homeDir}\\bing-${today}.jpg`))
+    .pipe(fs.createWriteStream(bingUrl))
     .on("finish", async () => {
-      await wallpaper.set(`${homeDir}\\bing-${today}.jpg`);
+      await wallpaper.set(bingUrl);
     });
 };
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 const wallpaper = require("wallpaper");
-const fs = require("fs");
-const { today } = require("./utils/formatDate");
-const got = require("got");
 const program = require("commander");
-const { homeDir } = require("./config/constants");
-const { bingAPI } = require("./config/api");
-const setMoment = require("./src/saveMomenImage");
+const setMomentun = require("./src/saveMomenImage");
 const setBing = require("./src/saveBingImage");
+const fs = require("fs");
+const initProgram = require("./src/init");
 
+const { bingUrl, momentumUrl, originUrl } = require("./config/constants");
+
+initProgram();
 program.version("0.2.0");
 
 program
@@ -16,9 +16,21 @@ program
   .description("change wallpaper to bing or momentum")
   .action(name => {
     if (name === "bing") {
-      setBing();
+      if (fs.existsSync(bingUrl)) {
+        (async () => {
+          await wallpaper.set(bingUrl);
+        })();
+      } else {
+        setBing();
+      }
     } else if (name === "momentum") {
-      setMoment();
+      if (fs.existsSync(momentumUrl)) {
+        (async () => {
+          await wallpaper.set(momentumUrl);
+        })();
+      } else {
+        setMomentun();
+      }
     }
   });
 
@@ -27,7 +39,7 @@ program
   .description("reset wallpaper")
   .action(() => {
     (async () => {
-      await wallpaper.set(`${homeDir}\\origin.jpg`);
+      await wallpaper.set(originUrl);
     })();
   });
 
