@@ -6,7 +6,7 @@
 $ npm install -g picday-cli
 ```
 
-## How to use
+## Usage
 
 - change wallpaper to Bing
 

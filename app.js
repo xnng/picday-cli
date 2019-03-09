@@ -5,12 +5,14 @@ const setMomentun = require("./src/saveMomenImage");
 const setBing = require("./src/saveBingImage");
 const fs = require("fs");
 const initProgram = require("./src/init");
+const openExplorer = require("open-file-explorer");
 
 const {
   bingUrl,
   momentumUrl,
   originUrl,
-  dataStoreFile
+  dataStoreFile,
+  homeDir
 } = require("./config/constants");
 
 const Store = require("data-store");
@@ -64,6 +66,13 @@ program
   .description("set momentum uuid")
   .action(id => {
     store.set("uuid", id);
+  });
+
+program
+  .command("open")
+  .description("set momentum uuid")
+  .action(() => {
+    openExplorer(homeDir);
   });
 
 program.command("*").action(() => {

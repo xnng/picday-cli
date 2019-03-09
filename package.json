@@ -19,6 +19,7 @@
     "dateformat": "^3.0.3",
     "fs-extra": "^7.0.1",
     "got": "^9.6.0",
+    "open-file-explorer": "^1.0.2",
     "progress-stream": "^2.0.0",
     "request": "^2.88.0",
     "wallpaper": "^4.2.0"
