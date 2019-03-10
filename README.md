@@ -1,6 +1,6 @@
 # Picday-cli
 
->Get and set today's wallpaper from bing.com and Momentum chrome extension.
+>A command line tool based on node. Get and set today's wallpaper from bing.com and Momentum chrome extension. Works on macOS 10.12+, Linux, and Windows 10+.
 
 
 <p align="center">
@@ -21,37 +21,71 @@ $ npm install -g picday-cli
 
 ## Usage
 
-- change wallpaper to Bing
+- Change the wallpaper to bing
 
 ```bash
 $ picday use bing
 ```
 
-- change wallpaper to momentum
+- Change the wallpaper to momentum
 
 ```bash
 $ picday use momentum
 ```
 
-- reset origin wallpaper
+- Reset to the original wallpaper
 
 ```bash
 $ picday reset
 ```
 
-- delete today's wallpaper
+- Delete today's wallpaper
 
 ```bash
 $ picday clean
 ```
 
-- open wallpaper folder in explorer
+- Open wallpapers folder in explorer
 
 ```bash
 $ picday open
 ```
 
-## Momentum setting
+## Setting
+
+### Bing wallpaper
+
+Different regions of the today's wallpaper may not be the same, the default region is `zh-cn`.
+
+Find your area code in the table below:
+
+| Area/Code  | Area/Code | Area/Code  |
+| :-- | :---- | :---- |
+| Argentina (es-ar) | Finland (fi-fi) | Switzerland (fr-ch) |
+| United Arab emirates (ar-ae) | South Korea (ko-kr) | Saudi Arabia (ar-sa) |
+| Egypt (ar-eg) | Netherlands (nl-nl) | China - Taiwan (zh-tw) |
+| Ireland (en-ie) | Canada - French (fr-ca) | Turkey (tr-tr) |
+| Austria (de-at) | Canada - English (en-ca) | Spain (en-es) |
+| Australia (en-au) | Malaysia (en) | China - Hong Kong (zh-hk) |
+| Brazil (pt-br) | America - Spanish (es-us) | Singapore (en-sg) |
+| Belgium - French (fr-be) | America - English (en-us) | New Zealand (en-nz) |
+| Belgium - Dutch (nl-be) | Mexican (es-mx) | Italian (it-it) |
+| Poland (pl-pl), | South Africa (en-za) | India (en-in) |
+| Denmark (dk-da) | Norway (nb-no) | Indonesia (en-id) |
+| Germany (de-de) | Portugal (pt-pt) | England (en-gb) |
+| Russia (ru-ru) | Japan (ja-jp) | Chile (en-cl) |
+| France (fr-fr) | Sweden (sv-se) | China (zh-cn) |
+| Philippines (en-ph) | Switzerland - German (de-ch) |... |
+
+Then use the command `picday set-area <area-code>` to set it to your own, like this:
+
+```
+$ picday set-area en-us
+```
+
+After than, don't forget to run `picday clean` to remove old wallpapers and obtain a new.
+
+### Momentum wallpaper
 
 You may find that your momentum wallpaper is different from the chrome extension. Because everyone's `client_uuid` is different. So you need to set your own `client_uuid`.
 
@@ -65,7 +99,7 @@ $ picday set client_uuid
     <img alt="Momentum setting" src="https://user-images.githubusercontent.com/38936252/54071888-01981e80-42ae-11e9-88e8-0fb1f7f15f08.png" width="750">
 </p>
 
-After than, don't forget to run `picday clean` to remove old wallpapers and retrieve your own.
+After than, don't forget to run `picday clean` to remove old wallpapers and obtain a new.
 
 ## License
 
