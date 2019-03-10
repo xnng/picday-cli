@@ -1,5 +1,7 @@
 # Picday-cli
 
+English | [简体中文](./README-zh_CN.md)
+
 >A command line tool based on node. Get and set today's wallpaper from bing.com and Momentum chrome extension. Works on macOS 10.12+, Linux, and Windows 10+.
 
 
