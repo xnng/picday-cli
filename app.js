@@ -11,8 +11,7 @@ const {
   bingUrl,
   momentumUrl,
   originUrl,
-  dataStoreFile,
-  homeDir
+  dataStoreFile
 } = require("./config/constants");
 
 const Store = require("data-store");
@@ -72,7 +71,7 @@ program
   .command("open")
   .description("open picture folder in explorer")
   .action(() => {
-    openExplorer(homeDir);
+    openExplorer(`${process.env.HOME || process.env.USERPROFILE}\\.picday`);
   });
 
 program.command("*").action(() => {
