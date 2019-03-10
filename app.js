@@ -6,20 +6,21 @@ const setBing = require("./src/saveBingImage");
 const fs = require("fs");
 const fss = require("fs-extra");
 const initProgram = require("./src/init");
-const openExplorer = require("open-file-explorer");
+const openExplorer = require("open-in-explorer");
 
 const {
   bingUrl,
   momentumUrl,
   originUrl,
-  dataStoreFile
+  dataStoreFile,
+  homeDir
 } = require("./config/constants");
 
 const Store = require("data-store");
 const store = new Store({ path: dataStoreFile });
 
 initProgram();
-program.version("1.5.1");
+program.version("1.6.1");
 
 program
   .command("use <name>")
@@ -82,7 +83,7 @@ program
   .command("open")
   .description("open picture folder in explorer")
   .action(() => {
-    openExplorer(`${process.env.HOME || process.env.USERPROFILE}\\.picday`);
+    openExplorer(homeDir);
   });
 
 program.command("*").action(() => {
