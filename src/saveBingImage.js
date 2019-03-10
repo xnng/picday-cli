@@ -18,14 +18,16 @@ str.on("progress", function(progress) {
 
 const setBing = () => {
   (async () => {
-    try {
-      const response = await got(
-        `https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=${bingArea}`
-      );
-      const imgUrl = `https://www.bing.com${
-        JSON.parse(response.body).images[0].url
-      }`;
+    const response = await got(
+      `https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=${bingArea}`
+    ).catch(err => {
+      console.log("please try again");
+    });
+    const imgUrl = `https://www.bing.com${
+      JSON.parse(response.body).images[0].url
+    }`;
 
+    if (imgUrl) {
       got
         .stream(imgUrl)
         .pipe(str)
@@ -33,8 +35,6 @@ const setBing = () => {
         .on("finish", async () => {
           await wallpaper.set(bingUrl);
         });
-    } catch (error) {
-      console.log(error.response.body);
     }
   })();
 };

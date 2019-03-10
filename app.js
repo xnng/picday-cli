@@ -20,7 +20,7 @@ const Store = require("data-store");
 const store = new Store({ path: dataStoreFile });
 
 initProgram();
-program.version("1.6.1");
+program.version("1.6.2");
 
 program
   .command("use <name>")
