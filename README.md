@@ -83,7 +83,7 @@ Then use the command `picday set-area <area-code>` to set it to your own, like t
 $ picday set-area en-us
 ```
 
-After than, don't forget to run `picday clean` to remove old wallpapers and obtain a new.
+After that, don't forget to run `picday clean` to remove old wallpapers and obtain a new.
 
 ### Momentum wallpaper
 
@@ -92,14 +92,14 @@ You may find that your momentum wallpaper is different from the chrome extension
 Open chrome's new tab and console, enter `localStorage.client_uuid`, then just paste your `client_uuid` into the following command:
 
 ```bash
-$ picday set client_uuid
+$ picday set-id client_uuid
 ```
 
 <p align="center">
-    <img alt="Momentum setting" src="https://user-images.githubusercontent.com/38936252/54071888-01981e80-42ae-11e9-88e8-0fb1f7f15f08.png" width="750">
+    <img alt="Momentum setting" src="https://user-images.githubusercontent.com/38936252/54081842-9ea69600-4346-11e9-97e9-4e17c106c6e5.png" width="750">
 </p>
 
-After than, don't forget to run `picday clean` to remove old wallpapers and obtain a new.
+After that, don't forget to run `picday clean` to remove old wallpapers and obtain a new.
 
 ## License
 

@@ -19,6 +19,7 @@ const dataStoreFile = normalize(
 
 const store = new Store({ path: dataStoreFile });
 const momentumId = store.get("uuid") || "d2608540-c607-4422-a6c7-1e35233ad37d";
+const bingArea = store.get("area") || "zh-cn";
 
 module.exports = {
   homeDir,
@@ -27,5 +28,6 @@ module.exports = {
   originUrl,
   dataStorePath,
   dataStoreFile,
-  momentumId
+  momentumId,
+  bingArea
 };

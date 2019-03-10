@@ -4,6 +4,7 @@ const program = require("commander");
 const setMomentun = require("./src/saveMomenImage");
 const setBing = require("./src/saveBingImage");
 const fs = require("fs");
+const fss = require("fs-extra");
 const initProgram = require("./src/init");
 const openExplorer = require("open-file-explorer");
 
@@ -18,7 +19,7 @@ const Store = require("data-store");
 const store = new Store({ path: dataStoreFile });
 
 initProgram();
-program.version("1.4.1");
+program.version("1.5.1");
 
 program
   .command("use <name>")
@@ -56,15 +57,25 @@ program
   .command("clean")
   .description("delete today's wallpaper")
   .action(() => {
-    fs.unlinkSync(bingUrl);
-    fs.unlinkSync(momentumUrl);
+    (async () => {
+      await fss.remove(bingUrl);
+      await fss.remove(momentumUrl);
+      console.log("clean success!");
+    })();
   });
 
 program
-  .command("set <id>")
+  .command("set-id <id>")
   .description("set momentum uuid")
   .action(id => {
     store.set("uuid", id);
+  });
+
+program
+  .command("set-area <code>")
+  .description("set bing area")
+  .action(code => {
+    store.set("area", code);
   });
 
 program
