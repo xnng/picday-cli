@@ -1,4 +1,10 @@
-# Picday-cli
+# Picday-cli 
+
+![npm](https://img.shields.io/npm/v/picday-cli.svg)
+![plateform](https://img.shields.io/badge/palteform-win%2010%20%7C%20linux%20%7C%20macOS-lightgrey.svg)
+![node](https://img.shields.io/badge/node-%3E%3D8.9.0-brightgreen.svg)
+![npm](https://img.shields.io/npm/dm/picday-cli.svg?logo=npm)
+![GitHub](https://img.shields.io/github/license/xnng/picday-cli.svg?logo=github)
 
 English | [简体中文](./README-zh_CN.md)
 
